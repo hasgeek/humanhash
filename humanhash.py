@@ -9,43 +9,7 @@ import operator
 import uuid as uuidlib
 
 
-DEFAULT_WORDLIST = (
-    'ack', 'alabama', 'alanine', 'alaska', 'alpha', 'angel', 'apart', 'april',
-    'arizona', 'arkansas', 'artist', 'asparagus', 'aspen', 'august', 'autumn',
-    'avocado', 'bacon', 'bakerloo', 'batman', 'beer', 'berlin', 'beryllium',
-    'black', 'blossom', 'blue', 'bluebird', 'bravo', 'bulldog', 'burger',
-    'butter', 'california', 'carbon', 'cardinal', 'carolina', 'carpet', 'cat',
-    'ceiling', 'charlie', 'chicken', 'coffee', 'cola', 'cold', 'colorado',
-    'comet', 'connecticut', 'crazy', 'cup', 'dakota', 'december', 'delaware',
-    'delta', 'diet', 'don', 'double', 'early', 'earth', 'east', 'echo',
-    'edward', 'eight', 'eighteen', 'eleven', 'emma', 'enemy', 'equal',
-    'failed', 'fanta', 'fifteen', 'fillet', 'finch', 'fish', 'five', 'fix',
-    'floor', 'florida', 'football', 'four', 'fourteen', 'foxtrot', 'freddie',
-    'friend', 'fruit', 'gee', 'georgia', 'glucose', 'golf', 'green', 'grey',
-    'hamper', 'happy', 'harry', 'hawaii', 'helium', 'high', 'hot', 'hotel',
-    'hydrogen', 'idaho', 'illinois', 'india', 'indigo', 'ink', 'iowa',
-    'island', 'item', 'jersey', 'jig', 'johnny', 'juliet', 'july', 'jupiter',
-    'kansas', 'kentucky', 'kilo', 'king', 'kitten', 'lactose', 'lake', 'lamp',
-    'lemon', 'leopard', 'lima', 'lion', 'lithium', 'london', 'louisiana',
-    'low', 'magazine', 'magnesium', 'maine', 'mango', 'march', 'mars',
-    'maryland', 'massachusetts', 'may', 'mexico', 'michigan', 'mike',
-    'minnesota', 'mirror', 'mississippi', 'missouri', 'mobile', 'mockingbird',
-    'monkey', 'montana', 'moon', 'mountain', 'muppet', 'music', 'nebraska',
-    'neptune', 'network', 'nevada', 'nine', 'nineteen', 'nitrogen', 'north',
-    'november', 'nuts', 'october', 'ohio', 'oklahoma', 'one', 'orange',
-    'oranges', 'oregon', 'oscar', 'oven', 'oxygen', 'papa', 'paris', 'pasta',
-    'pennsylvania', 'pip', 'pizza', 'pluto', 'potato', 'princess', 'purple',
-    'quebec', 'queen', 'quiet', 'red', 'river', 'robert', 'robin', 'romeo',
-    'rugby', 'sad', 'salami', 'saturn', 'september', 'seven', 'seventeen',
-    'shade', 'sierra', 'single', 'sink', 'six', 'sixteen', 'skylark', 'snake',
-    'social', 'sodium', 'solar', 'south', 'spaghetti', 'speaker', 'spring',
-    'stairway', 'steak', 'stream', 'summer', 'sweet', 'table', 'tango', 'ten',
-    'tennessee', 'tennis', 'texas', 'thirteen', 'three', 'timing', 'triple',
-    'twelve', 'twenty', 'two', 'uncle', 'undress', 'uniform', 'uranus', 'utah',
-    'vegan', 'venus', 'vermont', 'victor', 'video', 'violet', 'virginia',
-    'washington', 'west', 'whiskey', 'white', 'william', 'winner', 'winter',
-    'wisconsin', 'wolfram', 'wyoming', 'xray', 'yankee', 'yellow', 'zebra',
-    'zulu')
+DEFAULT_WORDLIST = ('nlp', 'nosql', 'photoshop', 'saas', 'xcode', 'sqlserver', 'hadoop', 'data-scientist', 'mysql', 'ninja', 'openstack', 'visual-studio', 'code-review', 'integrity', 'mobile-app', 'developer', 'xml', 'native-app', 'apache-cordova', 'candidate', 'mumbai', 'analytics', 'flash', 'cdns', 'celery', 'usability', 'equity', 'localizations', 'junit', 'css3', 'activities', 'meteor', 'iit-bombay', 'python', 'evaluate', 'rake', 'postgis', 'psd', 'functional', 'appstore', 'background', 'jenkins', 'web-sockets', 'excellent-negotiating', 'mocha', 'java-script', 'ie9', 'storyboard', 'open-source', 'data-mining', 'make', 'rabbitmq', 'server', 'digital-media', 'scalable-architecture', 'team', 'mapkit', 'security', 'cms', 'rack', 'detailed-job', 'crm', 'front-end', 'javascript-engineers', 'foundation', 'adobe', 'rockstar', 'dilbert', 'android-sdks', 'twitter', 'startup', 'job-requirements', 'iim-calcutta', 'layouts', 'growth', 'design', 'kickass', 'reviewer', 'team-player', 'postgres', 'social-networks', 'expert', 'phonegap', 'android-studio', 'redis', 'angular-js', 'version', 'seo-', 'cakephp', 'full-stack', 'backend', 'jasmin', 'core', 'hibernate', 'java-programming', 'business', 'web', 'internship', 'aws', 'javascript', 'jasmine', 'iconic', 'web-developer', 'tdd', 'ajax', 'china', 'html5', 'ubuntu', 'apache', 'strong', 'graphic-designer', 'laravel', 'pune', 'web-servcies', 'postgresql', 'constraint', 'php-developer', 'industry', 'experience', 'keen', 'joomla', 'mvc', 'elasticsearch', 'adobe-photoshop', 'sass', 'ionic', 'new-delhi', 'vacation-policy', 'apple', 'social-media', 'devops', 'cocoa', 'unix', 'api', 'linux', 'sounds', 'ios-developer', 'engineer', 'iim-bangalore', 'git', 'java', 'codeigniter', 'free', 'software-developer', 'nosql-db', 'perl', 'json', 'wordpress', 'iphone', 'criteria', 'widgets', 'mks', 'lean-practices', 'energy', 'big-data-analytics', 'define', 'function', 'iit', 'newsletters', 'company', 'memory', 'j2ee', 'rspec', 'ec2', 'iit-delhi', 'grunt', 'ruby', 'sdk', 'jquery', 'project-manager', 'analyze', 'illustrator', 'tomcat', 'embedded', 'web-app', 'rest-api', 'work', 'eclipse', 'objective-c', 'senior-architect', 'lead', 'lucene', 'frameworks', 'compensation', 'open-gl', 'stock-options', 'jquery-mobile', 'nashik', 'android-apis', 'restful', 'requirejs', 'user-interface', 'sqlite', 'documentation', 'mongo', 'springmvc', 'big-data', 'india', 'sales', 'linkedin', 'koramangala', 'iit-kanpur', 'ansible', 'expertise', 'angularjs', 'silicon-valley', 'technology', 'html-designer', 'ipad-developer', 'adwords', 'webgl', 'firmware', 'vagrant', 'indiranagar', 'phonegap-developer', 'ceo', 'html', 'esops', 'machine-learning', 'online', 'performance', 'android', 'pandas', 'css', 'karma', 'node', 'gurgaon', 'bonus', 'mongodb', 'senior-ux', 'ios', 'scalability', 'mouth', 'plan', 'sql', 'services', 'tech-lead', 'php', 'data', 'svn', 'paas', 'designers', 'github', 'technical-lead', 'algorithm', 'database', 'url', 'bootstrap', 'san-francisco', 'django', 'client', 'advocacy', 'databases', 'coordinate', 'frontend-developers', 'mac-os')
 
 
 class HumanHasher(object):
@@ -65,7 +29,7 @@ class HumanHasher(object):
 
     def __init__(self, wordlist=DEFAULT_WORDLIST):
         if len(wordlist) != 256:
-            raise ArgumentError("Wordlist must have exactly 256 items")
+            raise ValueError("Wordlist must have exactly 256 items")
         self.wordlist = wordlist
 
     def humanize(self, hexdigest, words=4, separator='-'):
